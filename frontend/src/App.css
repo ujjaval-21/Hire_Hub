@@ -1,0 +1,1367 @@
+/* =========================================================
+   GLOBAL / SHARED COMPONENTS
+   Used across multiple pages: cards, badges, buttons, forms
+   ========================================================= */
+
+.card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 1.1rem 1.3rem;
+  margin-bottom: 0.9rem;
+}
+
+.card h3 {
+  margin: 0 0 0.3rem 0;
+}
+
+.card-meta {
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.page-title {
+  margin: 0 0 1.2rem 0;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 0.8rem;
+}
+
+.section-header h3 {
+  margin: 0;
+}
+
+.error-text {
+  color: var(--color-danger);
+  font-size: 0.9rem;
+}
+
+.success-text {
+  color: var(--color-success);
+  font-size: 0.9rem;
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background-color: var(--color-surface);
+  color: var(--color-text);
+  border: 1px solid var(--color-border);
+}
+
+.btn-secondary:hover {
+  background-color: var(--color-bg);
+}
+
+input:disabled,
+textarea:disabled {
+  background-color: var(--color-bg);
+  color: var(--color-text-muted);
+  cursor: default;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.2rem;
+}
+
+.form-row > div {
+  margin-bottom: 0.9rem;
+}
+
+.form-full {
+  margin-bottom: 0.9rem;
+}
+
+.empty-state {
+  background-color: var(--color-surface);
+  border: 1px dashed var(--color-border);
+  border-radius: var(--radius);
+  padding: 2rem;
+  text-align: center;
+  color: var(--color-text-muted);
+}
+
+.empty-state p {
+  margin: 0 0 0.5rem 0;
+}
+
+/* Status badge (used on My Applications, My Job Postings) */
+.status-badge {
+  display: inline-block;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  background-color: #EFF6FF;
+  color: var(--color-primary);
+}
+
+.status-badge.status-applied     { background-color: #EFF6FF; color: #2563EB; }
+.status-badge.status-reviewed    { background-color: #FEF9C3; color: #A16207; }
+.status-badge.status-shortlisted { background-color: #DCFCE7; color: #16A34A; }
+.status-badge.status-rejected    { background-color: #FEE2E2; color: #DC2626; }
+.status-badge.status-hired       { background-color: #DBEAFE; color: #1D4ED8; }
+
+/* Job type badge (Full-time, Remote, etc.) */
+.job-type-badge {
+  display: inline-block;
+  padding: 0.15rem 0.55rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  background-color: #F1F5F9;
+  color: var(--color-text-muted);
+  text-transform: capitalize;
+}
+
+/* Filter pills (used on My Applications page) */
+.filter-tabs {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.2rem;
+  flex-wrap: wrap;
+}
+
+.filter-tab {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  background-color: var(--color-surface);
+  color: var(--color-text-muted);
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  padding: 0.4rem 0.85rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.filter-tab:hover {
+  background-color: var(--color-bg);
+}
+
+.filter-tab-active {
+  background-color: var(--color-primary);
+  color: white;
+  border-color: var(--color-primary);
+}
+
+.filter-tab-count {
+  background-color: rgba(0, 0, 0, 0.08);
+  border-radius: 999px;
+  padding: 0.05rem 0.4rem;
+  font-size: 0.75rem;
+}
+
+.filter-tab-active .filter-tab-count {
+  background-color: rgba(255, 255, 255, 0.25);
+}
+
+
+/* =========================================================
+   PAGE LAYOUT (wraps every logged-in page: sidebar + content)
+   ========================================================= */
+
+.app-layout {
+  display: flex;
+  width: 100%;
+  gap: 1.5rem;
+  padding: 1.5rem 1.5rem 1.5rem 1.5rem;
+  align-items: flex-start;
+  box-sizing: border-box;
+}
+
+.app-layout-full {
+  width: 100%;
+  padding: 1.5rem;
+  box-sizing: border-box;
+}
+
+.app-content {
+  flex: 1;
+  min-width: 0;
+}
+
+
+/* =========================================================
+   TOP NAVIGATION BAR
+   ========================================================= */
+
+.top-navbar {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 0.9rem 1.5rem;
+  background-color: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--color-text);
+}
+
+.brand:hover {
+  text-decoration: none;
+}
+
+.nav-spacer {
+  flex: 1;
+}
+
+.nav-plain-link {
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+/* Search box inside the top navbar (logged-in state) */
+.nav-search {
+  position: relative;
+  flex: 1;
+  max-width: 420px;
+}
+
+.nav-search input {
+  padding-left: 2.2rem;
+  background-color: var(--color-bg);
+  border-color: transparent;
+}
+
+.nav-search-icon {
+  position: absolute;
+  left: 0.6rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--color-text-muted);
+  pointer-events: none;
+}
+
+/* User avatar + dropdown menu (top-right of navbar) */
+.nav-user-chip {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.9rem;
+}
+
+.nav-user-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: var(--color-primary);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.nav-user-role {
+  color: var(--color-text-muted);
+  font-weight: 400;
+}
+
+.nav-user-menu {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.nav-user-dropdown {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 0.5rem);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  min-width: 140px;
+  display: flex;
+  flex-direction: column;
+  z-index: 10;
+}
+
+.nav-user-dropdown a,
+.nav-user-dropdown button {
+  padding: 0.6rem 0.9rem;
+  text-align: left;
+  background: none;
+  border: none;
+  font-size: 0.9rem;
+  color: var(--color-text);
+  cursor: pointer;
+}
+
+.nav-user-dropdown a:hover,
+.nav-user-dropdown button:hover {
+  background-color: var(--color-bg);
+  text-decoration: none;
+}
+
+/* Notification bell + hover dropdown preview */
+.notification-bell {
+  position: relative;
+}
+
+.bell-button {
+  position: relative;
+  background: none;
+  border: none;
+  color: var(--color-text-muted);
+  padding: 0.4rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.bell-button:hover {
+  background-color: var(--color-bg);
+  border-radius: var(--radius);
+  color: var(--color-text);
+}
+
+.bell-badge {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: var(--color-danger);
+  color: white;
+  font-size: 0.65rem;
+  font-weight: 600;
+  padding: 0.1rem 0.35rem;
+  border-radius: 999px;
+}
+
+.bell-dropdown {
+  position: absolute;
+  right: 0;
+  top: 100%;
+  width: 280px;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  z-index: 10;
+}
+
+.bell-dropdown-item {
+  padding: 0.6rem 0.8rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.bell-dropdown-footer {
+  padding: 0.6rem 0.8rem;
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--color-primary);
+  cursor: pointer;
+}
+
+
+/* =========================================================
+   SIDEBAR (left nav on every logged-in page)
+   ========================================================= */
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  width: 220px;
+  flex-shrink: 0;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 1rem;
+  position: sticky;
+  top: 1.5rem;
+  min-height: calc(100vh - 6.5rem);
+}
+
+.sidebar-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+/* Divider above the account section (Profile/Settings/Help/Logout) */
+.sidebar-account-section {
+  border-top: 1px solid var(--color-border);
+  padding-top: 0.8rem;
+}
+
+.sidebar-link {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.6rem 0.75rem;
+  border-radius: var(--radius);
+  color: var(--color-text);
+  font-size: 0.9rem;
+  font-weight: 500;
+  border: none;
+  background: none;
+  cursor: pointer;
+  text-align: left;
+  width: 100%;
+}
+
+.sidebar-link:hover {
+  background-color: var(--color-bg);
+  text-decoration: none;
+}
+
+.sidebar-link.active {
+  background-color: #EFF6FF;
+  color: var(--color-primary);
+}
+
+/* Pushes the account section down to the bottom of the sidebar */
+.sidebar-spacer {
+  flex: 1;
+}
+
+.sidebar-logout {
+  color: var(--color-danger);
+}
+
+
+/* =========================================================
+   HOME PAGE
+   Two states: logged-out hero landing, logged-in dashboard
+   ========================================================= */
+
+/* --- Logged-out hero --- */
+.hero {
+  text-align: center;
+  padding: 3.5rem 1.5rem 3rem;
+  background: linear-gradient(135deg, #EFF6FF, #F8FAFC);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  margin-bottom: 2rem;
+}
+
+.hero h1 {
+  font-size: 2.1rem;
+  margin: 0 0 0.5rem 0;
+}
+
+.hero > p {
+  color: var(--color-text-muted);
+  margin: 0 0 1.8rem 0;
+  font-size: 1.05rem;
+}
+
+/* Two-field search bar (keyword + location), Indeed-style */
+.hero-search {
+  display: flex;
+  align-items: stretch;
+  max-width: 640px;
+  margin: 0 auto 1.5rem;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  padding: 0.2rem;
+}
+
+.hero-search-field {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  gap: 0.5rem;
+  padding: 0 0.6rem;
+  min-width: 0;
+}
+
+.hero-search-field input {
+  border: none;
+  padding: 0;
+  height: 32px;
+  line-height: 32px;
+  background: transparent;
+}
+
+.hero-search-field input:focus {
+  box-shadow: none;
+}
+
+.hero-search-icon {
+  color: var(--color-text-muted);
+  flex-shrink: 0;
+}
+
+.hero-search-divider {
+  width: 1px;
+  align-self: center;
+  height: 20px;
+  background-color: var(--color-border);
+  flex-shrink: 0;
+}
+
+.hero-search button {
+  flex-shrink: 0;
+  border-radius: 9px;
+  align-self: center;
+  margin-right: 0.1rem;
+  padding: 0.5rem 1rem;
+}
+
+.hero-stats {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 1.8rem;
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+}
+
+.hero-stats strong {
+  color: var(--color-text);
+  font-size: 1.1rem;
+}
+
+.hero-actions {
+  display: flex;
+  justify-content: center;
+  gap: 0.8rem;
+}
+
+.hero-btn {
+  padding: 0.65rem 1.3rem;
+  border-radius: var(--radius);
+  font-weight: 600;
+  font-size: 0.92rem;
+}
+
+.hero-btn-primary {
+  background-color: var(--color-primary);
+  color: white;
+}
+
+.hero-btn-primary:hover {
+  background-color: var(--color-primary-hover);
+  text-decoration: none;
+}
+
+.hero-btn-secondary {
+  background-color: var(--color-surface);
+  color: var(--color-text);
+  border: 1px solid var(--color-border);
+}
+
+.hero-btn-secondary:hover {
+  background-color: var(--color-bg);
+  text-decoration: none;
+}
+
+.job-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+/* --- Logged-in dashboard --- */
+.welcome-banner {
+  background: linear-gradient(135deg, #EFF6FF, #F8FAFC);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 1.5rem 1.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.welcome-banner h2 {
+  margin: 0 0 0.3rem 0;
+}
+
+.welcome-banner p {
+  margin: 0;
+  color: var(--color-text-muted);
+}
+
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.stat-card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 1rem 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.stat-number {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.stat-label {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+}
+
+/* Two-column layout: main content + right-side overview panel */
+.home-grid {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 1.5rem;
+  align-items: flex-start;
+}
+
+.home-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  position: sticky;
+  top: 1.5rem;
+  align-self: flex-start;
+}
+
+.overview-card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 1.1rem 1.3rem;
+}
+
+.overview-card h3 {
+  margin: 0 0 0.8rem 0;
+  font-size: 1rem;
+}
+
+.overview-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0;
+  font-size: 0.85rem;
+}
+
+.overview-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.overview-label {
+  flex: 1;
+  text-transform: capitalize;
+  color: var(--color-text-muted);
+}
+
+.overview-count {
+  font-weight: 600;
+}
+
+.activity-row {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.activity-row:last-child {
+  border-bottom: none;
+}
+
+.activity-avatar {
+  width: 34px;
+  height: 34px;
+  flex-shrink: 0;
+}
+
+.activity-title {
+  margin: 0;
+  font-weight: 600;
+  font-size: 0.88rem;
+}
+
+.quick-action-link {
+  display: block;
+  padding: 0.55rem 0;
+  font-size: 0.88rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.quick-action-link:last-child {
+  border-bottom: none;
+}
+
+
+/* =========================================================
+   LOGIN / REGISTER PAGES
+   ========================================================= */
+
+.auth-wrapper {
+  display: flex;
+  justify-content: center;
+  padding: 3rem 1.5rem;
+}
+
+.auth-card {
+  position: relative;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 2rem 2.2rem;
+  width: 100%;
+  max-width: 420px;
+}
+
+.auth-card h2 {
+  margin: 0 0 1.5rem 0;
+}
+
+.auth-card button[type="submit"] {
+  width: 100%;
+  margin-top: 0.3rem;
+}
+
+.auth-switch {
+  text-align: center;
+  margin-top: 1.2rem;
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+}
+
+/* "X" close button, top-right of the auth card */
+.auth-close-btn {
+  position: absolute;
+  top: 0.9rem;
+  right: 0.9rem;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  color: var(--color-text-muted);
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.1rem;
+  line-height: 1;
+  padding: 0;
+}
+
+.auth-close-btn:hover {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+}
+
+
+/* =========================================================
+   JOB DETAIL PAGE
+   ========================================================= */
+
+.job-detail-header {
+  margin-bottom: 1.5rem;
+}
+
+.job-detail-header h2 {
+  margin: 0 0 0.4rem 0;
+}
+
+.job-detail-meta {
+  display: flex;
+  gap: 0.6rem;
+  align-items: center;
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+  margin-bottom: 0.6rem;
+}
+
+.job-detail-description {
+  white-space: pre-wrap;
+  line-height: 1.6;
+  margin-top: 1rem;
+}
+
+.apply-box {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--color-border);
+}
+
+.apply-box select {
+  max-width: 300px;
+  display: inline-block;
+  margin-right: 0.6rem;
+}
+
+.applicant-row {
+  border-top: 1px solid var(--color-border);
+  padding-top: 0.8rem;
+  margin-top: 0.8rem;
+}
+
+
+/* =========================================================
+   POST A JOB PAGE
+   ========================================================= */
+
+.form-card-wide {
+  max-width: 700px;
+}
+
+
+/* =========================================================
+   MY APPLICATIONS PAGE (candidate)
+   ========================================================= */
+
+.application-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+
+/* =========================================================
+   BROWSE JOBS PAGE
+   ========================================================= */
+
+.job-search-bar {
+  display: flex;
+  gap: 0.6rem;
+  margin-bottom: 1rem;
+}
+
+.job-search-field {
+  position: relative;
+  flex: 1;
+}
+
+.job-search-field input {
+  padding-left: 2.2rem;
+}
+
+.job-search-icon {
+  position: absolute;
+  left: 0.65rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--color-text-muted);
+  pointer-events: none;
+}
+
+.job-filter-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.job-type-pills {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.sort-select {
+  width: auto;
+  min-width: 180px;
+}
+
+.results-count {
+  color: var(--color-text-muted);
+  font-size: 0.85rem;
+  margin: 0 0 1rem 0;
+}
+
+.job-list-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.job-list-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: var(--radius);
+  background-color: #EFF6FF;
+  color: var(--color-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+
+/* =========================================================
+   EDIT PROFILE PAGE
+   ========================================================= */
+
+.profile-static-field {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.4rem 0;
+  border-bottom: 1px solid var(--color-border);
+  font-size: 0.9rem;
+  margin: 0 0 1rem 0;
+}
+
+.profile-field-label {
+  color: var(--color-text-muted);
+}
+
+.resume-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--color-border);
+  font-size: 0.9rem;
+}
+
+.resume-upload-form {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-top: 1rem;
+}
+
+.resume-upload-form button {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  flex-shrink: 0;
+}
+
+
+
+/* ========================================================*/
+
+
+.job-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.job-card-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: var(--radius);
+  background-color: #EFF6FF;
+  color: var(--color-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.job-card-main {
+  flex: 1;
+  min-width: 0;
+}
+
+.job-card-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.4rem;
+  flex-shrink: 0;
+  text-align: right;
+}
+
+
+/* =========================================================
+   LOGOUT CONFIRMATION MODAL
+   ========================================================= */
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(15, 23, 42, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+.modal-box {
+  background-color: var(--color-surface);
+  border-radius: var(--radius);
+  padding: 1.6rem 1.8rem;
+  width: 100%;
+  max-width: 340px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.modal-box h3 {
+  margin: 0 0 0.4rem 0;
+}
+
+.modal-box .card-meta {
+  margin-bottom: 1.3rem;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.6rem;
+}
+
+.btn-danger {
+  background-color: var(--color-danger);
+  color: white;
+}
+
+.btn-danger:hover {
+  background-color: #B91C1C;
+}
+
+
+.view-more-jobs-btn {
+  display: block;
+  text-align: center;
+  padding: 0.75rem;
+  margin-top: 0.5rem;
+  border: 1px dashed var(--color-border);
+  border-radius: var(--radius);
+  color: var(--color-primary);
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.view-more-jobs-btn:hover {
+  background-color: var(--color-bg);
+  text-decoration: none;
+}
+
+
+/* =========================================================
+   DARK MODE TOGGLE
+   ========================================================= */
+
+.theme-toggle-btn {
+  background: none;
+  border: none;
+  color: var(--color-text-muted);
+  padding: 0.4rem;
+  border-radius: var(--radius);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.theme-toggle-btn:hover {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+}
+
+.settings-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.toggle-switch {
+  width: 44px;
+  height: 24px;
+  border-radius: 999px;
+  background-color: var(--color-border);
+  border: none;
+  position: relative;
+  cursor: pointer;
+  flex-shrink: 0;
+  padding: 0;
+}
+
+.toggle-switch-knob {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: white;
+  transition: transform 0.15s ease;
+}
+
+.toggle-switch-on {
+  background-color: var(--color-primary);
+}
+
+.toggle-switch-on .toggle-switch-knob {
+  transform: translateX(20px);
+}
+
+
+/* =========================================================
+   DARK MODE OVERRIDES
+   Fixes for elements that use hardcoded (non-variable) colors
+   ========================================================= */
+
+[data-theme="dark"] .hero,
+[data-theme="dark"] .welcome-banner {
+  background: linear-gradient(135deg, #1E3A5F, #1E293B);
+}
+
+[data-theme="dark"] .job-type-badge {
+  background-color: #334155;
+  color: #CBD5E1;
+}
+
+[data-theme="dark"] .status-badge.status-applied     { background-color: #1E3A5F; color: #93C5FD; }
+[data-theme="dark"] .status-badge.status-reviewed    { background-color: #3F3313; color: #FDE68A; }
+[data-theme="dark"] .status-badge.status-shortlisted { background-color: #14532D; color: #86EFAC; }
+[data-theme="dark"] .status-badge.status-rejected    { background-color: #450A0A; color: #FCA5A5; }
+[data-theme="dark"] .status-badge.status-hired       { background-color: #1E3A8A; color: #93C5FD; }
+
+[data-theme="dark"] .filter-tab-count {
+  background-color: rgba(255, 255, 255, 0.12);
+}
+
+[data-theme="dark"] .job-card-icon {
+  background-color: #1E3A5F;
+}
+
+
+/* =========================================================
+   SAVE JOB BUTTON
+   ========================================================= */
+
+.save-job-btn {
+  background: none;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  color: var(--color-text-muted);
+  padding: 0.4rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.save-job-btn:hover {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+}
+
+.save-job-btn-active {
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+  background-color: #EFF6FF;
+}
+
+[data-theme="dark"] .save-job-btn-active {
+  background-color: #1E3A5F;
+}
+
+
+/* =========================================================
+   MY JOB POSTINGS PAGE (employer)
+   ========================================================= */
+
+.job-posting-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.job-posting-actions {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.job-posting-actions button {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.job-edit-form {
+  display: flex;
+  flex-direction: column;
+}
+
+
+/* =========================================================
+   RESPONSIVE / MOBILE STYLES
+   ========================================================= */
+
+@media (max-width: 768px) {
+  /* Top navbar: stack search below brand+actions, wrap as needed */
+  .top-navbar {
+    flex-wrap: wrap;
+    padding: 0.8rem 1rem;
+    gap: 0.8rem;
+  }
+
+  .nav-search {
+    order: 3;
+    max-width: 100%;
+    flex-basis: 100%;
+  }
+
+  .nav-plain-link {
+    font-size: 0.8rem;
+  }
+
+  .nav-user-chip span {
+    display: none; /* hide username text on small screens, keep avatar */
+  }
+
+  /* Sidebar: move below content, full width, no longer sticky */
+  .app-layout {
+    flex-direction: column;
+    padding: 1rem;
+  }
+
+  .sidebar {
+    width: 100%;
+    position: static;
+    min-height: auto;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
+  .sidebar-section {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .sidebar-account-section {
+    border-top: none;
+    border-left: none;
+    padding-top: 0;
+  }
+
+  .sidebar-spacer {
+    display: none;
+  }
+
+  .sidebar-link {
+    width: auto;
+    padding: 0.5rem 0.6rem;
+    font-size: 0.8rem;
+  }
+
+  /* Hero search: stack fields vertically */
+  .hero {
+    padding: 2rem 1rem;
+  }
+
+  .hero h1 {
+    font-size: 1.5rem;
+  }
+
+  .hero-search {
+    flex-direction: column;
+    padding: 0.5rem;
+  }
+
+  .hero-search-field {
+    width: 100%;
+  }
+
+  .hero-search-divider {
+    display: none;
+  }
+
+  .hero-search button {
+    width: 100%;
+    margin: 0.3rem 0 0 0;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+  }
+
+  .hero-btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  /* Job grids: single column everywhere */
+  .job-grid,
+  .stat-grid,
+  .home-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .home-sidebar {
+    position: static;
+  }
+
+  /* Job cards: stack icon/text/right-side info vertically */
+  .job-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .job-card-right {
+    align-items: flex-start;
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-top: 0.5rem;
+  }
+
+  /* Forms: single column instead of two-column rows */
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .form-card-wide,
+  .auth-card {
+    max-width: 100%;
+  }
+
+  .auth-wrapper {
+    padding: 1.5rem 1rem;
+  }
+
+  /* Job search bar on Browse Jobs page */
+  .job-search-bar {
+    flex-direction: column;
+  }
+
+  .job-filter-bar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .sort-select {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero h1 {
+    font-size: 1.3rem;
+  }
+
+  .brand span {
+    display: none; /* keep icon, drop "JobBoard" text if too tight */
+  }
+}
