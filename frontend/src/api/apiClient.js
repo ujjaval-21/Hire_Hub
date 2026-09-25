@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const apiClient = axios.create({
-  baseURL: import.meta.env.VITE_API_URL || 'http://127.0.0.1:8000/api',
+  baseURL: import.meta.env.VITE_API_BASE_URL || 'http://127.0.0.1:8000/api',
 });
 
 // Attach the JWT access token to every outgoing request
@@ -28,7 +28,7 @@ apiClient.interceptors.response.use(
       if (refreshToken) {
         try {
           const refreshResponse = await axios.post(
-            `${import.meta.env.VITE_API_URL || 'http://127.0.0.1:8000/api'}/auth/login/refresh/`,
+            `${import.meta.env.VITE_API_BASE_URL || 'http://127.0.0.1:8000/api'}/auth/login/refresh/`,
             { refresh: refreshToken }
           );
           const newAccessToken = refreshResponse.data.access;
