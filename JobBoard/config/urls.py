@@ -5,6 +5,7 @@ from django.conf.urls.static import static
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 from django.http import JsonResponse
 from django.conf import settings
+from users.views import health
 
 def debug_settings(request):
     return JsonResponse({
@@ -16,6 +17,7 @@ def debug_settings(request):
 urlpatterns = [
     path('debug-settings/', debug_settings),
     path('admin/', admin.site.urls),
+    path("health/", health),
     path('api/auth/login/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('api/auth/login/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
     path('api/users/', include('users.urls')),

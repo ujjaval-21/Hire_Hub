@@ -10,6 +10,7 @@ from .serializers import (
     EmployerProfileSerializer,
     CandidateProfileSerializer,
 )
+from django.http import JsonResponse
 
 
 class EmployerRegisterView(generics.CreateAPIView):
@@ -79,3 +80,10 @@ class MyProfileView(generics.RetrieveUpdateAPIView):
         if self.request.user.role == 'employer':
             return self.request.user.employer_profile
         return self.request.user.candidate_profile
+
+
+def health(request):
+    return JsonResponse({
+        "success": True,
+        "message": "HireHub Backend is healthy"
+    })
